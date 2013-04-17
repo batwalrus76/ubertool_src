@@ -13,10 +13,13 @@ cgitb.enable()
 import sys
 sys.path.append("../rice")
 from rice.rice_output import RiceBatchRunner
-sys.path.append("../terrplant")
 ricePlantRunner = RiceBatchRunner()
+sys.path.append("../terrplant")
 from terrplant.terrplant_batch_runner import TerrPlantBatchRunner
 terrPlantRunner = TerrPlantBatchRunner()
+sys.path.append("../sip")
+from sip.sip_batch_runner import SIPBatchRunner
+sipRunner = SIPBatchRunner()
 from batch import Batch
 import pickle
 from django.utils import simplejson
@@ -51,8 +54,9 @@ def processUbertoolBatchRunsIntoBatchModelRuns(ubertools):
         combined_ubertool_props = combineUbertoolProperties(ubertool)
         ubertool_id = combined_ubertool_props["ubertool-config-name"]
         ubertool_result = {}
-        logger.info(combined_ubertool_props)
+        #logger.info(combined_ubertool_props)
         ubertool_result = terrPlantRunner.runTerrPlantModel(combined_ubertool_props,ubertool_result)
+        ubertool_result = sipRunner.runSIPModel(combined_ubertool_props,ubertool_result)
         #perform on all other eco models
         ubertools_results[ubertool_id]=ubertool_result
     batch.completed = db.DateTimeProperty.now()
