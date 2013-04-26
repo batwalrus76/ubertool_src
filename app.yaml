@@ -183,6 +183,9 @@ handlers:
 - url: /aqua-config-names
   script: ubertool/aquatic_toxicity.py
   login: required
+- url: /aqua/(.*)
+  script: ubertool/aquatic_toxicity.py
+  login: required
 #expo service
 - url: /expo-config-names
   script: ubertool/exposure_concentrations.py
