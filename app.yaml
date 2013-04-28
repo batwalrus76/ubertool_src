@@ -212,7 +212,7 @@ handlers:
 
 #Model method service for asynchronous invocation
 - url: /msed
-  script: rice/rice_output.py 
+  script: rice/rice_model.py 
 
 #ecosys service
 - url: /ecosys/(.*)
