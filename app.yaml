@@ -190,7 +190,10 @@ handlers:
 - url: /expo-config-names
   script: ubertool/exposure_concentrations.py
   login: required
-#expo service
+- url: /expo/(.*)
+  script: ubertool/exposure_concentrations.py
+  login: required
+#pest service
 - url: /pest-config-names
   script: ubertool/pesticide_properties.py
   login: required
@@ -198,7 +201,7 @@ handlers:
 - url: /eco-config-names
   script: ubertool/ecosystem_inputs.py
   login: required
-#expo service
+#terra service
 - url: /terra-config-names
   script: ubertool/terrestrial_toxicity.py
   login: required

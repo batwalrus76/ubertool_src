@@ -13,7 +13,6 @@ from google.appengine.ext import db
 from exposure_concentrations import ExposureConcentrations
 
 class ECInp(forms.Form):
-    user_id = users.get_current_user().user_id()
     user = users.get_current_user()
     user_id = user.user_id()
     q = db.Query(ExposureConcentrations)

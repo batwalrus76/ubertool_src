@@ -29,6 +29,7 @@ class ECInputPage(webapp.RequestHandler):
         html = html + template.render(templatepath + '04uberinput_end.html', {'sub_title': 'submit'})
         html = html + template.render(templatepath + '05ubertext_links_right.html', {})
         html = html + template.render(templatepath + '06uberfooter.html', {'links': ''})
+
         self.response.out.write(html)
 
 app = webapp.WSGIApplication([('/.*', ECInputPage)], debug=True)
@@ -38,5 +39,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
-    
