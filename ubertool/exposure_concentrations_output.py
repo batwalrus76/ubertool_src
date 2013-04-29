@@ -45,11 +45,6 @@ class UbertoolExposureConcentrationsConfigurationPage(webapp.RequestHandler):
         exposure_concentrations.pore_water_sixty_day_average_exposure_concentration = float(form.getvalue('pore_water_sixty_day_average_exposure_concentration'))
         exposure_concentrations.pore_water_ninety_day_average_exposure_concentration = float(form.getvalue('pore_water_ninety_day_average_exposure_concentration'))
         exposure_concentrations.put()
-        q2 = db.Query(ExposureConcentrations)
-        q2.filter('user =',user)
-        q2.filter("config_name =", config_name)
-        expo = q2.get()
-        logger.info(expo.to_xml())
         self.redirect("aquatic_toxicity.html")
         
 app = webapp.WSGIApplication([('/.*', UbertoolExposureConcentrationsConfigurationPage)], debug=True)
