@@ -8,7 +8,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
 import django
 from django import forms
-from stir import stir_parameters
+from stir import STIRdb
 
 class STIRInputPage(webapp.RequestHandler):
     def get(self):
@@ -21,7 +21,7 @@ class STIRInputPage(webapp.RequestHandler):
         html = html + template.render(templatepath + '04uberinput_start.html', {
                 'model':'stir', 
                 'model_attributes':'STIR Inputs'})
-        html = html + str(stir_parameters.STIRInp())
+        html = html + str(STIRdb.STIRInp())
         html = html + template.render(templatepath + '04uberinput_end.html', {'sub_title': 'Submit'})
         html = html + template.render(templatepath + '05ubertext_tooltips_right.html', {})
         html = html + template.render(templatepath + '06uberfooter.html', {'links': ''})

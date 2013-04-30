@@ -14,6 +14,7 @@ import cgitb
 import json
 
 cgitb.enable()
+from pfam import input_edit
 import base64
 import urllib
 from google.appengine.api import urlfetch
@@ -39,17 +40,17 @@ def get_jid(pdf_t, pdf_nop, pdf_p):
     data = urllib.urlencode({"input_str":input_str})
     response = urlfetch.fetch(url=url, payload=data, method=urlfetch.POST, headers=http_headers) 
     jid= json.loads(response.content)['jid']
-    output_st = "running"
-    
+    output_st = ''
+        
     while output_st!="done":
         response_st = urlfetch.fetch(url='https://api.picloud.com/job/?jids=%s&field=status' %jid, headers=http_headers)
         output_st = json.loads(response_st.content)['info']['%s' %jid]['status']
-    
 
     url_val = 'https://api.picloud.com/job/result/?jid='+str(jid)
     response_val = urlfetch.fetch(url=url_val, method=urlfetch.GET, headers=http_headers)
     output_val = json.loads(response_val.content)['result']
     return(jid, output_st, output_val)
+
 
 class pdfPage(webapp.RequestHandler):
     def post(self):
@@ -57,14 +58,28 @@ class pdfPage(webapp.RequestHandler):
         pdf_t = form.getvalue('pdf_t')
         pdf_nop = form.getvalue('pdf_nop')
         pdf_p = json.loads(form.getvalue('pdf_p'))
+
         final_res=get_jid(pdf_t, pdf_nop, pdf_p)[2]
         text_file2 = open('about_text.txt','r')
         xx = text_file2.read()
-        templatepath = os.path.dirname(__file__) + '/templates/'                                 
-        html = template.render(templatepath + 'popup_eco.html', {
-            'title':'Ubertool',
+        templatepath = os.path.dirname(__file__) + '/templates/'                     
+        html = template.render(templatepath+'01uberheader.html', {'title':'Ubertool'})
+        html = html + template.render(templatepath+'02uberintroblock_nomodellinks.html', {'title2':'Ecological Risk Web Applications','title3':''})
+        html = html + template.render (templatepath + '03ubertext_links_left.html', {})                        
+        html = html + template.render(templatepath + '04ubertext_start.html', {
             'model_page':final_res,
             'model_attributes':'Please download your PDF here','text_paragraph':''})
+        # html = html + extract
+        # html = html + """<img id="imgChart1" src="%s" />
+        # """%(extract1[0])
+        # html = html + """<img id="imgChart1" src="%s" />
+        # """%(extract1[1])
+        # html = html + """<img id="imgChart1" src="%s" />
+        # """%(extract1[2])
+
+        html = html + template.render (templatepath+'04ubertext_end.html',{})
+        html = html + template.render (templatepath+'05ubertext_links_right.html', {})
+        html = html + template.render(templatepath+'06uberfooter.html', {'links': ''})
         self.response.out.write(html)
 
 app = webapp.WSGIApplication([('/.*', pdfPage)], debug=True)

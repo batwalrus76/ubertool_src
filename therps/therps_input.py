@@ -2,7 +2,7 @@
 """
 Created on Tue Jan 03 13:30:41 2012
 
-@author: tao.hong
+@author: thong
 """
 
 import os
@@ -15,7 +15,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
 import django
 from django import forms
-from therps import therps_parameters
+from therps import therpsdb
 
 
 class THerpsInputPage(webapp.RequestHandler):
@@ -29,9 +29,8 @@ class THerpsInputPage(webapp.RequestHandler):
         html = html + template.render(templatepath + '04uberinput_start.html', {
                 'model':'therps', 
                 'model_attributes':'T-Herps Inputs'})
-        html = html + str(therps_parameters.therpsInp())
+        html = html + str(therpsdb.therpsInp())
         html = html + template.render(templatepath + '04uberinput_end.html', {'sub_title': 'Submit'})
-        html = html + template.render(templatepath + 'therps_jquery.html', {})
         html = html + template.render(templatepath + '05ubertext_tooltips_right.html', {})
         html = html + template.render(templatepath + '06uberfooter.html', {'links': ''})
         self.response.out.write(html)

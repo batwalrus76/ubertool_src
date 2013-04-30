@@ -15,8 +15,6 @@
       console.log('Opened MongoDb connection.');
     });
 
-
-
     exports.getBatchNames = function(callback)
     { 
       var completedBatchNames = {};
@@ -33,7 +31,6 @@
         });
       });
     }
-
 
     exports.getBatchResults = function(batch_id,callback)
     { 
