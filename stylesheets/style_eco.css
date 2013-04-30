@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6, p {
 /* General */
 
 body {
-  text-align: center;   /* Container: IE Hack */
+  /*text-align: center; */  /* Container: IE Hack */
   background: #F4F7ED repeat-x;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 11px;
@@ -1071,6 +1071,14 @@ ul.nobullet {
   margin: 0 0 0 1.5em;
   max-width: 640px;
 }
+.articles_output table {
+  margin-left: 30px;
+  text-align: left;
+}
+.articles_output h3,h4 {
+  text-align: left;
+  margin: 8px 0 4px 30px;
+}
 ul.bullet {
   padding: 0 2em;
   font-size: 12px;
@@ -1096,14 +1104,10 @@ ul.nobullet {
   z-index: 999;
 }
 #export_menu ul li{
-  display: block;
+  display: inline;
   list-style: none;
   padding: 0;
   margin: 0;
-}
-#export_menu ul li img {
-  margin: 0;
-  padding: 0;
 }
 #fadeExport_pdf {
   display: inline-block;
@@ -1139,7 +1143,7 @@ ul.nobullet {
   background: url(../images/export/export_sprite_small_hort.gif) no-repeat;
   background-position: -34px -38px;
 }
-#fadeExport_doc {
+/*#fadeExport_doc {
   display: inline-block;
   height: 38px;
   width: 34px;
@@ -1155,6 +1159,31 @@ ul.nobullet {
   width: 34px;
   background: url(../images/export/export_sprite_small_hort.gif) no-repeat;
   background-position: -68px -38px;
+}*/
+#popup_link {
+  position: fixed;
+  z-index: 9999;
+  width: 400px;
+  height: 60px;
+  text-align: center;
+  padding: 30px 20px;
+  background: #F9FBF6;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  box-shadow: 3px 3px 15px #333;
+  -webkit-box-shadow: 3px 3px 15px #333;
+  -moz-box-shadow: 3px 3px 15px #333;
+}
+.exit_button {
+  text-align: right;
+  position: absolute;
+  display: none;
+  cursor: hand; 
+  cursor: pointer;
+  margin-left: 204px;
+  margin-top: -46px;
+  z-index: 99999;
 }
 
 /* 06uberfooter.html */
@@ -1181,7 +1210,7 @@ ul.nobullet {
   height: 31px;
 }
 
-/*  Contact Us */
+/* Contact Us */
 
 #form1 label.error {
 	width: 200px;
@@ -1236,4 +1265,38 @@ ul.nobullet {
 	text-align: center;
 	border-bottom:1px solid #CCC;
 	background-color:#fff;
+}
+
+table,td
+{
+  border: 1px solid black;
+  border-width: 1px;
+  border-spacing: 2px;
+  border-style: outset;
+  border-color: white;
+  border-collapse: separate;
+  background-color: rgb(201,224,179);
+}
+
+table,th
+{
+  /*border: 1px solid black;
+  border-width: 1px;
+  border-spacing: 2px;
+  border-style: outset;
+  border-color: white;
+  border-collapse: separate;*/
+  background-color: rgb(201,224,179);
+  border: none;
+}
+/*  TESTING  */
+
+#popup {
+  background-color: #F9FBF6;
+  margin: auto;
+  padding: 0;
+  border: 0 none;
+  width: 400px;
+  display: none;
+  z-index: 999999;
 }
