@@ -134,108 +134,41 @@ class TerrestrialPropertiesRetrievalService(webapp.RequestHandler):
         q.filter('config_name =',terrestrial_config_name)
         terrestrial = q.get()
         terrestrial_dict = {}
-        terrestrial_dict['avian_lc50'] = None
-        if 'avian_lc50' in terrestrial:
-            terrestrial_dict['avian_lc50'] = terrestrial.avian_lc50
-        terrestrial_dict['avian_ld50'] = None
-        if 'avian_ld50' in terrestrial:
-            terrestrial_dict['avian_ld50'] = terrestrial.avian_ld50
-        terrestrial_dict['avian_NOAEC'] = None
-        if 'avian_NOAEC' in terrestrial:
-            terrestrial_dict['avian_NOAEC'] = terrestrial.avian_NOAEC
-        terrestrial_dict['avian_NOAEL'] = None
-        if 'avian_NOAEL' in terrestrial:
-            terrestrial_dict['avian_NOAEL'] = terrestrial.avian_NOAEL
-        terrestrial_dict['body_weight_of_the_assessed_bird'] = None
-        if 'body_weight_of_the_assessed_bird' in terrestrial:
-            terrestrial_dict['body_weight_of_the_assessed_bird'] = terrestrial.body_weight_of_the_assessed_bird
-        terrestrial_dict['mineau_scaling_factor'] = None
-        if 'mineau_scaling_factor' in terrestrial:
-            terrestrial_dict['mineau_scaling_factor'] = terrestrial.mineau_scaling_factor
-        terrestrial_dict['mammalian_ld50'] = None
-        if 'mammalian_ld50' in terrestrial:
-            terrestrial_dict['mammalian_ld50'] = terrestrial.mammalian_ld50
-        terrestrial_dict['mammalian_lc50'] = None
-        if 'mammalian_lc50' in terrestrial:
-            terrestrial_dict['mammalian_lc50'] = terrestrial.mammalian_lc50
-        terrestrial_dict['mammalian_inhalation_lc50'] = None
-        if 'mammalian_inhalation_lc50' in terrestrial:
-            terrestrial_dict['mammalian_inhalation_lc50'] = terrestrial.mammalian_inhalation_lc50
-        terrestrial_dict['duration_of_rat_study'] = None
-        if 'duration_of_rat_study' in terrestrial:
-            terrestrial_dict['duration_of_rat_study'] = terrestrial.duration_of_rat_study
-        terrestrial_dict['mammalian_NOAEC'] = None
-        if 'mammalian_NOAEC' in terrestrial:
-            terrestrial_dict['mammalian_NOAEC'] = terrestrial.mammalian_NOAEC
-        terrestrial_dict['mammalian_NOAEL'] = None
-        if 'mammalian_NOAEL' in terrestrial:
-            terrestrial_dict['mammalian_NOAEL'] = terrestrial.mammalian_NOAEL
-        terrestrial_dict['amphibian_bw'] = None
-        if 'amphibian_bw' in terrestrial:
-            terrestrial_dict['amphibian_bw'] = terrestrial.amphibian_bw
-        terrestrial_dict['terrestrial_phase_amphibian_ld50'] = None
-        if 'terrestrial_phase_amphibian_ld50' in terrestrial:
-            terrestrial_dict['terrestrial_phase_amphibian_ld50'] = terrestrial.terrestrial_phase_amphibian_ld50
-        terrestrial_dict['terrestrial_phase_amphibian_lc50'] = None
-        if 'terrestrial_phase_amphibian_lc50' in terrestrial:
-            terrestrial_dict['terrestrial_phase_amphibian_lc50'] = terrestrial.terrestrial_phase_amphibian_lc50
-        terrestrial_dict['terrestrial_phase_amphibian_NOAEC'] = None
-        if 'terrestrial_phase_amphibian_NOAEC' in terrestrial:
-            terrestrial_dict['terrestrial_phase_amphibian_NOAEC'] = terrestrial.terrestrial_phase_amphibian_NOAEC
-        terrestrial_dict['terrestrial_phase_amphibian_NOAEL'] = None
-        if 'terrestrial_phase_amphibian_NOAEL' in terrestrial:
-            terrestrial_dict['terrestrial_phase_amphibian_NOAEL'] = terrestrial.terrestrial_phase_amphibian_NOAEL
-        terrestrial_dict['reptile_bw'] = None
-        if 'reptile_bw' in terrestrial:
-            terrestrial_dict['reptile_bw'] = terrestrial.reptile_bw
-        terrestrial_dict['terrestrial_phase_reptile_ld50'] = None
-        if 'terrestrial_phase_reptile_ld50' in terrestrial:
-            terrestrial_dict['terrestrial_phase_reptile_ld50'] = terrestrial.terrestrial_phase_reptile_ld50
-        terrestrial_dict['terrestrial_phase_reptile_lc50'] = None
-        if 'terrestrial_phase_reptile_lc50' in terrestrial:
-            terrestrial_dict['terrestrial_phase_reptile_lc50'] = terrestrial.terrestrial_phase_reptile_lc50
-        terrestrial_dict['terrestrial_phase_reptile_NOAEL'] = None
-        if 'terrestrial_phase_reptile_NOAEL' in terrestrial:
-            terrestrial_dict['terrestrial_phase_reptile_NOAEL'] = terrestrial.terrestrial_phase_reptile_NOAEL
-        terrestrial_dict['EC25_for_nonlisted_seedling_emergence_monocot'] = None
-        if 'EC25_for_nonlisted_seedling_emergence_monocot' in terrestrial:
-            terrestrial_dict['EC25_for_nonlisted_seedling_emergence_monocot'] = terrestrial.EC25_for_nonlisted_seedling_emergence_monocot
-        terrestrial_dict['EC25_for_nonlisted_seedling_emergence_dicot'] = None
-        if 'EC25_for_nonlisted_seedling_emergence_dicot' in terrestrial:
-            terrestrial_dict['EC25_for_nonlisted_seedling_emergence_dicot'] = terrestrial.EC25_for_nonlisted_seedling_emergence_dicot
-        terrestrial_dict['NOAEC_for_listed_seedling_emergence_monocot'] = None
-        if 'NOAEC_for_listed_seedling_emergence_monocot' in terrestrial:
-            terrestrial_dict['NOAEC_for_listed_seedling_emergence_monocot'] = terrestrial.NOAEC_for_listed_seedling_emergence_monocot
-        terrestrial_dict['NOAEC_for_listed_seedling_emergence_monocot'] = None
-        if 'NOAEC_for_listed_seedling_emergence_monocot' in terrestrial:
-            terrestrial_dict['NOAEC_for_listed_seedling_emergence_monocot'] = terrestrial.NOAEC_for_listed_seedling_emergence_monocot
-        terrestrial_dict['EC25_for_nonlisted_vegetative_vigor_monocot'] = None
-        if 'EC25_for_nonlisted_vegetative_vigor_monocot' in terrestrial:
-            terrestrial_dict['EC25_for_nonlisted_vegetative_vigor_monocot'] = terrestrial.EC25_for_nonlisted_vegetative_vigor_monocot
-        terrestrial_dict['EC25_for_nonlisted_vegetative_vigor_dicot'] = None
-        if 'EC25_for_nonlisted_vegetative_vigor_dicot' in terrestrial:
-            terrestrial_dict['EC25_for_nonlisted_vegetative_vigor_dicot'] = terrestrial.EC25_for_nonlisted_vegetative_vigor_dicot
-        terrestrial_dict['NOAEC_for_listed_vegetative_vigor_monocot'] = None
-        if 'NOAEC_for_listed_vegetative_vigor_monocot' in terrestrial:
-            terrestrial_dict['NOAEC_for_listed_vegetative_vigor_monocot'] = terrestrial.NOAEC_for_listed_vegetative_vigor_monocot
-        terrestrial_dict['NOAEC_for_listed_vegetative_vigor_dicot'] = None
-        if 'NOAEC_for_listed_vegetative_vigor_dicot' in terrestrial:
-            terrestrial_dict['NOAEC_for_listed_vegetative_vigor_dicot'] = terrestrial.NOAEC_for_listed_vegetative_vigor_dicot
-        terrestrial_dict['Small_medium_and_large_BW_of_assessed_herptile_listed_species'] = None
-        if 'Small_medium_and_large_BW_of_assessed_herptile_listed_species' in terrestrial:
-            terrestrial_dict['Small_medium_and_large_BW_of_assessed_herptile_listed_species'] = terrestrial.Small_medium_and_large_BW_of_assessed_herptile_listed_species
-        terrestrial_dict['percent_water_content_of_small_med_large_herptile_species_diet'] = None
-        if 'percent_water_content_of_small_med_large_herptile_species_diet' in terrestrial:
-            terrestrial_dict['percent_water_content_of_small_med_large_herptile_species_diet'] = terrestrial.percent_water_content_of_small_med_large_herptile_species_diet
-        terrestrial_dict['taxonomic_group'] = None
-        if 'taxonomic_group' in terrestrial:
-            terrestrial_dict['taxonomic_group'] = terrestrial.taxonomic_group
-        terrestrial_dict['eat_mammals'] = None
-        if 'eat_mammals' in terrestrial:
-            terrestrial_dict['eat_mammals'] = terrestrial.eat_mammals
-        terrestrial_dict['eat_amphibians_reptiles'] = None
-        if 'eat_amphibians_reptiles' in terrestrial:
-            terrestrial_dict['eat_amphibians_reptiles'] = terrestrial.eat_amphibians_reptiles
+        terrestrial_dict['avian_lc50'] = terrestrial.avian_lc50
+        terrestrial_dict['avian_ld50'] = terrestrial.avian_ld50
+        terrestrial_dict['avian_NOAEC'] = terrestrial.avian_NOAEC
+        terrestrial_dict['avian_NOAEL'] = terrestrial.avian_NOAEL
+        terrestrial_dict['body_weight_of_the_assessed_bird'] = terrestrial.body_weight_of_the_assessed_bird
+        terrestrial_dict['mineau_scaling_factor'] = terrestrial.mineau_scaling_factor
+        terrestrial_dict['mammalian_ld50'] = terrestrial.mammalian_ld50
+        terrestrial_dict['mammalian_lc50'] = terrestrial.mammalian_lc50
+        terrestrial_dict['mammalian_inhalation_lc50'] = terrestrial.mammalian_inhalation_lc50
+        terrestrial_dict['duration_of_rat_study'] = terrestrial.duration_of_rat_study
+        terrestrial_dict['mammalian_NOAEC'] = terrestrial.mammalian_NOAEC
+        terrestrial_dict['mammalian_NOAEL'] = terrestrial.mammalian_NOAEL
+        terrestrial_dict['amphibian_bw'] = terrestrial.amphibian_bw
+        terrestrial_dict['terrestrial_phase_amphibian_ld50'] = terrestrial.terrestrial_phase_amphibian_ld50
+        terrestrial_dict['terrestrial_phase_amphibian_lc50'] = terrestrial.terrestrial_phase_amphibian_lc50
+        terrestrial_dict['terrestrial_phase_amphibian_NOAEC'] = terrestrial.terrestrial_phase_amphibian_NOAEC
+        terrestrial_dict['terrestrial_phase_amphibian_NOAEL'] = terrestrial.terrestrial_phase_amphibian_NOAEL
+        terrestrial_dict['reptile_bw'] = terrestrial.reptile_bw
+        terrestrial_dict['terrestrial_phase_reptile_ld50'] = terrestrial.terrestrial_phase_reptile_ld50
+        terrestrial_dict['terrestrial_phase_reptile_lc50'] = terrestrial.terrestrial_phase_reptile_lc50
+        terrestrial_dict['terrestrial_phase_reptile_NOAEL'] = terrestrial.terrestrial_phase_reptile_NOAEL
+        terrestrial_dict['terrestrial_phase_reptile_NOAEC'] = terrestrial.terrestrial_phase_reptile_NOAEC
+        terrestrial_dict['EC25_for_nonlisted_seedling_emergence_monocot'] = terrestrial.EC25_for_nonlisted_seedling_emergence_monocot
+        terrestrial_dict['EC25_for_nonlisted_seedling_emergence_dicot'] = terrestrial.EC25_for_nonlisted_seedling_emergence_dicot
+        terrestrial_dict['NOAEC_for_listed_seedling_emergence_monocot'] = terrestrial.NOAEC_for_listed_seedling_emergence_monocot
+        terrestrial_dict['NOAEC_for_listed_seedling_emergence_monocot'] = terrestrial.NOAEC_for_listed_seedling_emergence_monocot
+        terrestrial_dict['EC25_for_nonlisted_vegetative_vigor_monocot'] = terrestrial.EC25_for_nonlisted_vegetative_vigor_monocot
+        terrestrial_dict['EC25_for_nonlisted_vegetative_vigor_dicot'] = terrestrial.EC25_for_nonlisted_vegetative_vigor_dicot
+        terrestrial_dict['NOAEC_for_listed_vegetative_vigor_monocot'] = terrestrial.NOAEC_for_listed_vegetative_vigor_monocot
+        terrestrial_dict['NOAEC_for_listed_vegetative_vigor_dicot'] = terrestrial.NOAEC_for_listed_vegetative_vigor_dicot
+        terrestrial_dict['Small_medium_and_large_BW_of_assessed_herptile_listed_species'] = terrestrial.Small_medium_and_large_BW_of_assessed_herptile_listed_species
+        terrestrial_dict['percent_water_content_of_small_med_large_herptile_species_diet'] = terrestrial.percent_water_content_of_small_med_large_herptile_species_diet
+        terrestrial_dict['taxonomic_group'] = terrestrial.taxonomic_group
+        terrestrial_dict['eat_mammals'] = terrestrial.eat_mammals
+        terrestrial_dict['eat_amphibians_reptiles'] = terrestrial.eat_amphibians_reptiles
         return terrestrial_dict
     
 class TerrestrialToxicityConfigNamesService(webapp.RequestHandler):
